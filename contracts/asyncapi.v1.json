@@ -1,0 +1,288 @@
+{
+  "asyncapi": "3.1.0",
+  "id": "urn:parsa-security:riftrange:events:v1",
+  "info": {
+    "title": "RiftRange Events",
+    "version": "1.0.0",
+    "description": "Canonical application event contract. Delivery is at-least-once; consumers must be idempotent and deduplicate by event id."
+  },
+  "defaultContentType": "application/json",
+  "channels": {
+    "event_lab_requested_v1": {
+      "address": "lab.requested.v1",
+      "messages": {
+        "LabRequestedV1Message": {
+          "$ref": "#/components/messages/LabRequestedV1Message"
+        }
+      }
+    },
+    "event_lab_provisioning_started_v1": {
+      "address": "lab.provisioning_started.v1",
+      "messages": {
+        "LabProvisioningStartedV1Message": {
+          "$ref": "#/components/messages/LabProvisioningStartedV1Message"
+        }
+      }
+    },
+    "event_lab_observed_state_changed_v1": {
+      "address": "lab.observed_state_changed.v1",
+      "messages": {
+        "LabObservedStateChangedV1Message": {
+          "$ref": "#/components/messages/LabObservedStateChangedV1Message"
+        }
+      }
+    },
+    "event_lab_reconciled_v1": {
+      "address": "lab.reconciled.v1",
+      "messages": {
+        "LabReconciledV1Message": {
+          "$ref": "#/components/messages/LabReconciledV1Message"
+        }
+      }
+    },
+    "event_lab_terminated_v1": {
+      "address": "lab.terminated.v1",
+      "messages": {
+        "LabTerminatedV1Message": {
+          "$ref": "#/components/messages/LabTerminatedV1Message"
+        }
+      }
+    },
+    "event_agent_enrolled_v1": {
+      "address": "agent.enrolled.v1",
+      "messages": {
+        "AgentEnrolledV1Message": {
+          "$ref": "#/components/messages/AgentEnrolledV1Message"
+        }
+      }
+    },
+    "event_agent_heartbeat_received_v1": {
+      "address": "agent.heartbeat_received.v1",
+      "messages": {
+        "AgentHeartbeatReceivedV1Message": {
+          "$ref": "#/components/messages/AgentHeartbeatReceivedV1Message"
+        }
+      }
+    },
+    "event_runtime_lease_expired_v1": {
+      "address": "runtime.lease_expired.v1",
+      "messages": {
+        "RuntimeLeaseExpiredV1Message": {
+          "$ref": "#/components/messages/RuntimeLeaseExpiredV1Message"
+        }
+      }
+    }
+  },
+  "operations": {
+    "send_lab_requested_v1": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/event_lab_requested_v1"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/event_lab_requested_v1/messages/LabRequestedV1Message"
+        }
+      ]
+    },
+    "send_lab_provisioning_started_v1": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/event_lab_provisioning_started_v1"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/event_lab_provisioning_started_v1/messages/LabProvisioningStartedV1Message"
+        }
+      ]
+    },
+    "send_lab_observed_state_changed_v1": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/event_lab_observed_state_changed_v1"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/event_lab_observed_state_changed_v1/messages/LabObservedStateChangedV1Message"
+        }
+      ]
+    },
+    "send_lab_reconciled_v1": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/event_lab_reconciled_v1"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/event_lab_reconciled_v1/messages/LabReconciledV1Message"
+        }
+      ]
+    },
+    "send_lab_terminated_v1": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/event_lab_terminated_v1"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/event_lab_terminated_v1/messages/LabTerminatedV1Message"
+        }
+      ]
+    },
+    "send_agent_enrolled_v1": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/event_agent_enrolled_v1"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/event_agent_enrolled_v1/messages/AgentEnrolledV1Message"
+        }
+      ]
+    },
+    "send_agent_heartbeat_received_v1": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/event_agent_heartbeat_received_v1"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/event_agent_heartbeat_received_v1/messages/AgentHeartbeatReceivedV1Message"
+        }
+      ]
+    },
+    "send_runtime_lease_expired_v1": {
+      "action": "send",
+      "channel": {
+        "$ref": "#/channels/event_runtime_lease_expired_v1"
+      },
+      "messages": [
+        {
+          "$ref": "#/channels/event_runtime_lease_expired_v1/messages/RuntimeLeaseExpiredV1Message"
+        }
+      ]
+    }
+  },
+  "components": {
+    "messages": {
+      "LabRequestedV1Message": {
+        "name": "lab.requested.v1",
+        "title": "lab.requested.v1",
+        "payload": {
+          "$ref": "#/components/schemas/EventEnvelope"
+        }
+      },
+      "LabProvisioningStartedV1Message": {
+        "name": "lab.provisioning_started.v1",
+        "title": "lab.provisioning_started.v1",
+        "payload": {
+          "$ref": "#/components/schemas/EventEnvelope"
+        }
+      },
+      "LabObservedStateChangedV1Message": {
+        "name": "lab.observed_state_changed.v1",
+        "title": "lab.observed_state_changed.v1",
+        "payload": {
+          "$ref": "#/components/schemas/EventEnvelope"
+        }
+      },
+      "LabReconciledV1Message": {
+        "name": "lab.reconciled.v1",
+        "title": "lab.reconciled.v1",
+        "payload": {
+          "$ref": "#/components/schemas/EventEnvelope"
+        }
+      },
+      "LabTerminatedV1Message": {
+        "name": "lab.terminated.v1",
+        "title": "lab.terminated.v1",
+        "payload": {
+          "$ref": "#/components/schemas/EventEnvelope"
+        }
+      },
+      "AgentEnrolledV1Message": {
+        "name": "agent.enrolled.v1",
+        "title": "agent.enrolled.v1",
+        "payload": {
+          "$ref": "#/components/schemas/EventEnvelope"
+        }
+      },
+      "AgentHeartbeatReceivedV1Message": {
+        "name": "agent.heartbeat_received.v1",
+        "title": "agent.heartbeat_received.v1",
+        "payload": {
+          "$ref": "#/components/schemas/EventEnvelope"
+        }
+      },
+      "RuntimeLeaseExpiredV1Message": {
+        "name": "runtime.lease_expired.v1",
+        "title": "runtime.lease_expired.v1",
+        "payload": {
+          "$ref": "#/components/schemas/EventEnvelope"
+        }
+      }
+    },
+    "schemas": {
+      "EventEnvelope": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "specversion",
+          "id",
+          "source",
+          "type",
+          "time",
+          "subject",
+          "data"
+        ],
+        "properties": {
+          "specversion": {
+            "type": "string",
+            "const": "1.0"
+          },
+          "id": {
+            "type": "string",
+            "minLength": 16
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "lab.requested.v1",
+              "lab.provisioning_started.v1",
+              "lab.observed_state_changed.v1",
+              "lab.reconciled.v1",
+              "lab.terminated.v1",
+              "agent.enrolled.v1",
+              "agent.heartbeat_received.v1",
+              "runtime.lease_expired.v1"
+            ]
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "traceparent": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "datacontenttype": {
+            "type": "string",
+            "const": "application/json"
+          },
+          "data": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  }
+}
