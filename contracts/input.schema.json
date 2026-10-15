@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:parsa:riftrange:input:0",
+  "title": "lab-plan planning draft",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "template_digest": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    },
+    "ttl_seconds": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nodes": {
+      "type": "array",
+      "maxItems": 100000,
+      "items": {
+        "type": "object"
+      }
+    },
+    "network_policy": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "template_digest",
+    "name",
+    "ttl_seconds",
+    "nodes",
+    "network_policy"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "repository": "Parsa-Emami/Riftrange",
+  "reviewed_commit": "801d2464050c936799b077b498030b784b830702",
+  "existing_file_count": 78,
+  "existing_runtime": "architecture scaffold only",
+  "protected_files_sha256": {
+    ".env.example": "cb985b70d4142fc3a997807687d31728c53848e6050a8ceaf49c0f5b5258b8ff"
+  },
+  "skipped_input_archival_config_paths": [
+    "legacy/v7/.env.example"
+  ],
+  "preservation": "All existing protected files remain at their original paths with identical bytes. Supplied archival env duplicates were omitted to avoid creating extra config files."
+}

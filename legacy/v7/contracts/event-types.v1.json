@@ -1,0 +1,17 @@
+{
+  "project": "RiftRange",
+  "envelope": "CloudEvents-compatible 1.0 profile",
+  "delivery": "at-least-once",
+  "ordering": "not globally guaranteed; per-aggregate sequencing when documented",
+  "deduplication": "required by event id",
+  "types": [
+    "lab.requested.v1",
+    "lab.provisioning_started.v1",
+    "lab.observed_state_changed.v1",
+    "lab.reconciled.v1",
+    "lab.terminated.v1",
+    "agent.enrolled.v1",
+    "agent.heartbeat_received.v1",
+    "runtime.lease_expired.v1"
+  ]
+}
