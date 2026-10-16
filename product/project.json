@@ -1,0 +1,111 @@
+{
+  "folder": "01-riftrange",
+  "name": "RiftRange",
+  "rank": 9,
+  "score": 6.4,
+  "verdict": "برای استفادهٔ شخصی و آموزش مناسب؛ عرضهٔ عمومی آزمایشگاه را تا اثبات ایزولیشن عقب بینداز.",
+  "user": "مدرس امنیت و توسعه‌دهندهٔ آزمایشگاه محلی",
+  "pain": "نصب تکراری محیط تمرین و باقی‌ماندن منابع بعد از پایان سناریو",
+  "value": "ساخت و پاک‌سازی یک تمرین ایزوله با نتیجهٔ قابل‌بازتولید",
+  "wedge": "آزمایشگاه کوتاه برای امنیت برنامه، با سناریوهای declarative و گزارش آموزشی",
+  "alternatives": "Caldera، آزمایشگاه‌های دستی و پلتفرم‌های آموزشی",
+  "source_ids": [
+    "caldera"
+  ],
+  "mvp": [
+    "یک host محلی و یک template ثابت",
+    "سناریوی شبیه‌سازی محدود و allowlist",
+    "start/stop/status و lease",
+    "نمایش نتیجه و گزارش قابل‌حمل"
+  ],
+  "later": [
+    "اجرای عمومی کد کاربران",
+    "fleet چند host",
+    "Firecracker برای مرز اطمینان بالاتر",
+    "billing و بازار content pack"
+  ],
+  "stack": [
+    "Go orchestrator/agent",
+    "rootless Podman",
+    "TypeScript React UI"
+  ],
+  "mode": "private-web",
+  "stores": {
+    "SQLite": "templates, labs, nodes, leases, jobs, audit, idempotency; local durable volume",
+    "Filesystem": "immutable template packs and reports; hash-addressed",
+    "Memory": "observed state cache only; rebuild via reconcile"
+  },
+  "removed": [
+    "Laravel control plane",
+    "PostgreSQL",
+    "Valkey",
+    "S3 server",
+    "OpenBao mandatory in single-host mode"
+  ],
+  "limits": {
+    "active_labs": 1,
+    "nodes_per_lab": 3,
+    "job_concurrency": 1,
+    "lab_ttl_minutes": 30,
+    "artifact_retention_days": 7
+  },
+  "hardware": "host آزمایشگاه پیشنهادی 4 vCPU / 8 GiB RAM / 40 GiB SSD؛ کنترل‌پنل سبک‌تر است. این سقف تست است، نه تضمین.",
+  "weeks": "10–18 هفته برای نسخهٔ محدود شخصی",
+  "risks": [
+    "rootless Podman به‌تنهایی برای کد ناشناس چند مشتری مرز کافی نیست",
+    "خطای egress و teardown می‌تواند میزبان را درگیر کند",
+    "دامنهٔ عمومی فقط UI نمایشی؛ runtime در host جدا و خصوصی"
+  ],
+  "uat": [
+    "یک template ثابت را راه‌اندازی و stop کن؛ container/network/mount اضافه باقی نماند",
+    "orchestrator وسط provisioning کشته شود؛ restart به حالت صحیح برسد",
+    "سناریو اجازهٔ shell دلخواه، mount میزبان و هدف اینترنتی ندهد"
+  ],
+  "domain": {
+    "primary": "lab-plan",
+    "fields": {
+      "template_digest": "hash",
+      "name": "text",
+      "ttl_seconds": "int",
+      "nodes": "array",
+      "network_policy": "object"
+    },
+    "invariants": [
+      "Only allowlisted scenario capabilities",
+      "Lease/fencing ownership before side effects",
+      "RUNNING requires observed healthy resources"
+    ]
+  },
+  "version": "0.0.0",
+  "status": "WEB_FOUNDATION",
+  "source_implemented": true,
+  "market_validation": "UNVALIDATED",
+  "assumption": "Browser application first; optional CLI/worker remains an engine adapter. Web foundation does not satisfy domain release gates.",
+  "engine_implemented": false,
+  "previous_engine_mode": "embedded-private",
+  "web_application": {
+    "status": "foundation_implemented",
+    "deployment_profile": "private-web",
+    "frontend": "React + TypeScript + Vite",
+    "web_runtime": "Node.js static shell; no engine proxy",
+    "default_engine_enabled": false,
+    "preview_storage": "tab memory only",
+    "offline_supported": false,
+    "engine_status": "planned",
+    "source": "apps/web/src/main.tsx",
+    "existing_backend": null
+  },
+  "web_version": "0.0.1",
+  "open_source": {
+    "license": "Apache-2.0",
+    "core_paid_account_required": false,
+    "owned_domain_required": false,
+    "sibling_clone_required": false,
+    "setup": "npm run setup",
+    "start": "npm start",
+    "usable_at": "C30",
+    "complete_v1_at": "C40",
+    "core_ready": false,
+    "architecture": "docs/architecture/ADR-0003-open-source-local-first.md"
+  }
+}

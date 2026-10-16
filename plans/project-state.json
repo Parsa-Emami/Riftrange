@@ -1,0 +1,15 @@
+{
+  "project": "RiftRange",
+  "reviewed_commit": "6907ac846c17200fb23fd4b0df14269c44f814a2",
+  "readiness": "WEB_FOUNDATION",
+  "core_ready": false,
+  "implemented": [
+    "responsive web shell",
+    "roadmap browser",
+    "local bounded JSON structure preview"
+  ],
+  "engine": "not implemented",
+  "next_task": "C01",
+  "next_command": "npm run plan -- next",
+  "full_product_endpoint": "C30 locally usable; C40 full published OSS v1"
+}

@@ -1,0 +1,29 @@
+{
+  "project": "RiftRange",
+  "version": "v1-reference",
+  "risk": "HIGH",
+  "runtime": [
+    "Laravel 13 control plane",
+    "Go orchestrator",
+    "Go lab agent",
+    "PostgreSQL 18 authoritative state",
+    "Valkey queue/cache",
+    "SeaweedFS/S3-compatible artifacts",
+    "OpenTelemetry"
+  ],
+  "final_decisions": [
+    "Reference local sandbox provider is rootless Podman. Host networking and privileged containers are prohibited.",
+    "High-assurance RuntimeProvider is Firecracker-capable and remains adapter-isolated; it does not change domain contracts.",
+    "Lab network egress is deny-by-default. Explicit allowlists are per lab and audited. Arbitrary Internet targeting is outside the OSS product boundary.",
+    "Agent enrollment uses one-time tokens and short-lived mTLS identity from an AgentIdentityProvider; OpenBao PKI is the reference production provider.",
+    "Remote agent/content updates use TUF-style update metadata; content packs are immutable, hash-addressed, schema-versioned bundles.",
+    "Scenario actions are declarative safe-simulation capabilities. No arbitrary shell/payload primitive is part of the public v1 ABI.",
+    "PostgreSQL owns lab/scenario/run state. Runtime state is reconciled, never treated as authority."
+  ],
+  "data_ownership": {
+    "PostgreSQL": "authoritative workspaces/labs/scenarios/runs/leases",
+    "Valkey": "queues, short-lived locks and cache only",
+    "ObjectStore": "immutable run artifacts and exported reports",
+    "RuntimeProvider": "external observed state, reconciled projection"
+  }
+}

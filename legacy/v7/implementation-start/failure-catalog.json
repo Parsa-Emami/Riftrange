@@ -1,0 +1,19 @@
+{
+  "project": "RiftRange",
+  "failures": [
+    "orchestrator crash mid-provision",
+    "duplicate command",
+    "expired lease",
+    "agent offline",
+    "provider timeout",
+    "partial teardown",
+    "egress attempt",
+    "quota exhaustion"
+  ],
+  "required_result": [
+    "invariants preserved",
+    "observable failure",
+    "bounded retries",
+    "recovery/reconciliation succeeds"
+  ]
+}

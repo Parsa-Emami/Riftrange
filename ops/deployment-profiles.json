@@ -1,0 +1,41 @@
+{
+  "version": "0",
+  "project": "RiftRange",
+  "status": "web_foundation",
+  "primary_mode": "private-web",
+  "domain_profile": {
+    "public_demo": "synthetic-only",
+    "admit_untrusted_runtime_jobs": false,
+    "enable_sensitive_data_upload_by_default": false,
+    "https_required": true
+  },
+  "private_profile": {
+    "single_owner": true,
+    "persistent_local_volume": true,
+    "use_external_database_service": false,
+    "providers": [
+      "Go orchestrator/agent",
+      "rootless Podman",
+      "TypeScript React UI"
+    ]
+  },
+  "capacity_targets": {
+    "active_labs": 1,
+    "nodes_per_lab": 3,
+    "job_concurrency": 1,
+    "lab_ttl_minutes": 30,
+    "artifact_retention_days": 7
+  },
+  "measured": false,
+  "engine_mode": "embedded-private",
+  "web": {
+    "artifact": "dist/release",
+    "listen": "127.0.0.1",
+    "port": 4301,
+    "https_proxy": "ops/web/nginx.conf.template",
+    "service": "ops/web/service.systemd",
+    "engine_enabled": false,
+    "private_admission": "deny-all until operator sets trusted network ranges",
+    "offline": false
+  }
+}
