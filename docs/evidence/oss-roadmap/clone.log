@@ -1,0 +1,6 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @parsa-emami/riftrange-web@0.0.1 test:clone
+> node scripts/clone-smoke.mjs
+
+{"passed":true,"stagedTree":"9a6f7cbb8d344a694de3e9d51238b4129ced8b37","proof":"real git clone -> npm run setup -> web startup","coreReady":false}
